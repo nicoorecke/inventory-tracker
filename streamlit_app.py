@@ -5,9 +5,7 @@ import sqlite3
 import streamlit as st
 import altair as alt
 import pandas as pd
-from charts import sales_by_category_chart
-st.cache_data.clear()
-st.cache_resource.clear()
+
 
 # Set the title and favicon that appear in the Browser's tab bar.
 st.set_page_config(
@@ -57,12 +55,11 @@ def initialize_data(conn):
             (item_name, price, units_sold, units_left, cost_price, reorder_point, description)
         VALUES
             -- Beverages
-            ('Coca colaaaa (500000ml)', 1.50, 115, 15, 0.80, 16, 'Hydrating bottled water'),
-            ('Soda', 2.00, 93, 8, 1.20, 10, 'Carbonated soft drink'),
+            ('Bottlssssssed Water (500ml)', 1.50, 115, 15, 0.80, 16, 'Hydrating bottled water'),
+            ('Soda (355ml)', 2.00, 93, 8, 1.20, 10, 'Carbonated soft drink'),
             ('Energy Drink (250ml)', 2.50, 12, 18, 1.50, 8, 'High-caffeine energy drink'),
             ('Coffee (hot, large)', 2.75, 11, 14, 1.80, 5, 'Freshly brewed hot coffee'),
             ('Juice (200ml)', 2.25, 11, 9, 1.30, 5, 'Fruit juice blend'),
-            ('Juuguitooooo (asas0ml)', 2.25, 11, 9, 1.30, 5, 'Fruit juice blend'),
 
             -- Snacks
             ('Potato Chips (small)', 2.00, 34, 16, 1.00, 10, 'Salted and crispy potato chips'),
@@ -72,7 +69,7 @@ def initialize_data(conn):
             ('Fruit Snack Pack', 1.75, 5, 10, 1.00, 8, 'Assortment of dried fruits and nuts'),
 
             -- Personal Care
-            ('Toothpasteeeeee', 3.50, 1, 9, 2.00, 5, 'Minty toothpaste for oral hygiene'),
+            ('Toothpaste', 3.50, 1, 9, 2.00, 5, 'Minty toothpaste for oral hygiene'),
             ('Hand Sanitizer (small)', 2.00, 2, 13, 1.20, 8, 'Small sanitizer bottle for on-the-go'),
             ('Pain Relievers (pack)', 5.00, 1, 5, 3.00, 3, 'Over-the-counter pain relief medication'),
             ('Bandages (box)', 3.00, 0, 10, 2.00, 5, 'Box of adhesive bandages for minor cuts'),
@@ -190,8 +187,6 @@ st.info(
 # Connect to database and create table if needed
 conn, db_was_just_created = connect_db()
 
-
-
 # Initialize data.
 if db_was_just_created:
     initialize_data(conn)
@@ -199,34 +194,6 @@ if db_was_just_created:
 
 # Load data from database
 df = load_data(conn)
-
-# ------------------------------------------------------
-# ------------------------------------------------------
-# Agregar esto al principio, después de cargar el df
-st.sidebar.header("Filtros")
-
-# Filtro por producto
-productos = df["item_name"].unique()
-producto_seleccionado = st.sidebar.multiselect("Seleccionar productos", productos, default=productos)
-
-# Filtro por cantidad mínima de unidades vendidas
-min_vendidas = st.sidebar.slider("Mínimo unidades vendidas", 0, int(df["units_sold"].max()), 0)
-
-# Aplicar filtro
-df_filtrado = df[
-    (df["item_name"].isin(producto_seleccionado)) &
-    (df["units_sold"] >= min_vendidas)
-]
-
-# Ahora todos los gráficos usan df_filtrado
-st.dataframe(df_filtrado)
-
-# Ejemplo: usá df_filtrado en lugar de df en tus gráficos
-sales_by_category_chart(df_filtrado)
-
-# ------------------------------------------------------
-# ------------------------------------------------------
-
 
 # Display data with editable table
 edited_df = st.data_editor(
@@ -321,9 +288,3 @@ st.altair_chart(
     ),
     use_container_width=True,
 )
-
-
-# ----------------------------------------------------------------------------- 
-# New Chart (from external script)
-sales_by_category_chart(df)
-sales_by_category_chart(df)
