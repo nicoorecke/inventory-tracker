@@ -5,7 +5,7 @@ import sqlite3
 import streamlit as st
 import altair as alt
 import pandas as pd
-
+from charts import sales_by_category_chart
 
 # Set the title and favicon that appear in the Browser's tab bar.
 st.set_page_config(
@@ -288,3 +288,8 @@ st.altair_chart(
     ),
     use_container_width=True,
 )
+
+
+# ----------------------------------------------------------------------------- 
+# New Chart (from external script)
+sales_by_category_chart(df)
