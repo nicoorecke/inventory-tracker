@@ -323,3 +323,4 @@ st.altair_chart(
 # ----------------------------------------------------------------------------- 
 # New Chart (from external script)
 sales_by_category_chart(df)
+sales_by_category_chart(df)
