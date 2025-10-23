@@ -55,7 +55,7 @@ def initialize_data(conn):
             (item_name, price, units_sold, units_left, cost_price, reorder_point, description)
         VALUES
             -- Beverages
-            ('Bottled Water (500ml)', 1.50, 115, 15, 0.80, 16, 'Hydrating bottled water'),
+            ('Botellita agua (500ml)', 1.50, 115, 15, 0.80, 16, 'Hydrating bottled water'),
             ('Soda (355ml)', 2.00, 93, 8, 1.20, 10, 'Carbonated soft drink'),
             ('Energy Drink (250ml)', 2.50, 12, 18, 1.50, 8, 'High-caffeine energy drink'),
             ('Coffee (hot, large)', 2.75, 11, 14, 1.80, 5, 'Freshly brewed hot coffee'),
