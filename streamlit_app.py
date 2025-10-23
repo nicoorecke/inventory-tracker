@@ -199,32 +199,32 @@ if db_was_just_created:
 # Load data from database
 df = load_data(conn)
 
-# ------------------------------------------------------
-# ------------------------------------------------------
-# Agregar esto al principio, después de cargar el df
-st.sidebar.header("Filtros")
+# # ------------------------------------------------------
+# # ------------------------------------------------------
+# # Agregar esto al principio, después de cargar el df
+# st.sidebar.header("Filtros")
 
-# Filtro por producto
-productos = df["item_name"].unique()
-producto_seleccionado = st.sidebar.multiselect("Seleccionar productos", productos, default=productos)
+# # Filtro por producto
+# productos = df["item_name"].unique()
+# producto_seleccionado = st.sidebar.multiselect("Seleccionar productos", productos, default=productos)
 
-# Filtro por cantidad mínima de unidades vendidas
-min_vendidas = st.sidebar.slider("Mínimo unidades vendidas", 0, int(df["units_sold"].max()), 0)
+# # Filtro por cantidad mínima de unidades vendidas
+# min_vendidas = st.sidebar.slider("Mínimo unidades vendidas", 0, int(df["units_sold"].max()), 0)
 
-# Aplicar filtro
-df_filtrado = df[
-    (df["item_name"].isin(producto_seleccionado)) &
-    (df["units_sold"] >= min_vendidas)
-]
+# # Aplicar filtro
+# df_filtrado = df[
+#     (df["item_name"].isin(producto_seleccionado)) &
+#     (df["units_sold"] >= min_vendidas)
+# ]
 
-# Ahora todos los gráficos usan df_filtrado
-st.dataframe(df_filtrado)
+# # Ahora todos los gráficos usan df_filtrado
+# st.dataframe(df_filtrado)
 
-# Ejemplo: usá df_filtrado en lugar de df en tus gráficos
-sales_by_category_chart(df_filtrado)
+# # Ejemplo: usá df_filtrado en lugar de df en tus gráficos
+# sales_by_category_chart(df_filtrado)
 
-# ------------------------------------------------------
-# ------------------------------------------------------
+# # ------------------------------------------------------
+# # ------------------------------------------------------
 
 
 # Display data with editable table
