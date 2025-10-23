@@ -56,17 +56,12 @@ def initialize_data(conn):
         VALUES
             -- Beverages
             ('Coca cola (500000ml)', 1.50, 115, 15, 0.80, 16, 'Hydrating bottled water'),
-            ('Soda ', 2.00, 93, 8, 1.20, 10, 'Carbonated soft drink'),
+            ('Soda', 2.00, 93, 8, 1.20, 10, 'Carbonated soft drink'),
             ('Energy Drink (250ml)', 2.50, 12, 18, 1.50, 8, 'High-caffeine energy drink'),
             ('Coffee (hot, large)', 2.75, 11, 14, 1.80, 5, 'Freshly brewed hot coffee'),
             ('Juice (200ml)', 2.25, 11, 9, 1.30, 5, 'Fruit juice blend'),
 
-            -- Snacks
-            ('Potato Chips (small)', 2.00, 34, 16, 1.00, 10, 'Salted and crispy potato chips'),
-            ('Candy Bar', 1.50, 6, 19, 0.80, 15, 'Chocolate and candy bar'),
-            ('Granola Bar', 2.25, 3, 12, 1.30, 8, 'Healthy and nutritious granola bar'),
-            ('Cookies (pack of 6)', 2.50, 8, 8, 1.50, 5, 'Soft and chewy cookies'),
-            ('Fruit Snack Pack', 1.75, 5, 10, 1.00, 8, 'Assortment of dried fruits and nuts'),
+
 
             -- Personal Care
             ('Toothpaste', 3.50, 1, 9, 2.00, 5, 'Minty toothpaste for oral hygiene'),
