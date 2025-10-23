@@ -57,7 +57,7 @@ def initialize_data(conn):
         VALUES
 
             -- Snacks
-            ('Potatooooo Chips (small)', 2.00, 34, 16, 1.00, 10, 'Salted and crispy potato chips'),
+            ('Potat Chips (small)', 2.00, 34, 16, 1.00, 10, 'Salted and crispy potato chips'),
             ('Candy Bar', 1.50, 6, 19, 0.80, 15, 'Chocolate and candy bar'),
             ('Granola Bar', 2.25, 3, 12, 1.30, 8, 'Healthy and nutritious granola bar'),
             ('Cookies (pack of 6)', 2.50, 8, 8, 1.50, 5, 'Soft and chewy cookies'),
